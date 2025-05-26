@@ -8,13 +8,3 @@ export const CATEGORIES = [
   { name: "history", color: "#f97316" },
   { name: "news", color: "#8b5cf6" },
 ];
-
-export const isValidHttpUrl = (str) => {
-  let url;
-  try {
-    url = new URL(str);
-  } catch (_) {
-    return false;
-  }
-  return url.protocol === "http:" || url.protocol === "https:";
-};
