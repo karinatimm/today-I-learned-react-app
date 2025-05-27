@@ -1,15 +1,20 @@
-import "./style.css";
-import Header from "./components/Header";
 import { useState, useEffect } from "react";
+import Header from "./components/Header";
 import NewFactForm from "./components/NewFactForm";
-import FactList from "./components/FactList";
-import supabase from ".supabase";
+import FactList from "./components/FactList.tsx";
+import CategoryFilter from "./components/CategoryFilter";
+import Loader from "./components/Loader";
+import supabase from "./supabase.ts";
+import { type Fact } from "./types/index.ts";
+import { type CategoryName } from "./utils/categories";
 
 const App = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
-  const [facts, setFacts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState("all");
+  const [facts, setFacts] = useState<Fact[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [currentCategory, setCurrentCategory] = useState<CategoryName | "all">(
+    "all"
+  );
 
   useEffect(() => {
     const getFacts = async () => {
