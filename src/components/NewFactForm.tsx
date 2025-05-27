@@ -1,16 +1,23 @@
-import { useState } from "react";
-import supabase from "../supabase";
-import { MAX_LENGTH, isValidHttpUrl } from "../utils/utils.js";
-import { CATEGORIES } from "../utils/categories.js";
+import { useState, type SetStateAction } from "react";
+import supabase from "../supabase.js";
+import { MAX_LENGTH, isValidHttpUrl } from "../utils/utils.ts";
+import { CATEGORIES } from "../utils/categories.ts";
+import { type Fact as FactType } from "../types/index";
+import type { FormEvent } from "react";
 
-const NewFactForm = ({ setFacts, setShowForm }) => {
+type NewFactFormProps = {
+  setFacts: React.Dispatch<SetStateAction<FactType[]>>;
+  setShowForm: React.Dispatch<SetStateAction<boolean>>;
+};
+
+const NewFactForm = ({ setFacts, setShowForm }: NewFactFormProps) => {
   const [text, setText] = useState("");
   const [source, setSource] = useState("");
   const [category, setCategory] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const textLength = text.length;
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (text && isValidHttpUrl(source) && category && textLength <= 200) {
