@@ -1,12 +1,10 @@
-import type React from "react";
 import { CATEGORIES } from "../utils/categories.ts";
 import Category from "./Category.tsx";
 import { type CategoryName } from "../utils/categories";
+import { type SetState as SetStateType } from "../types/index";
 
 type CategoryFilterProps = {
-  setCurrentCategory: React.Dispatch<
-    React.SetStateAction<"all" | CategoryName>
-  >;
+  setCurrentCategory: SetStateType<"all" | CategoryName>;
 };
 
 const CategoryFilter = ({ setCurrentCategory }: CategoryFilterProps) => {
