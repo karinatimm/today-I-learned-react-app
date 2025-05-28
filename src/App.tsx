@@ -9,15 +9,15 @@ import { type Fact } from "./types/index.ts";
 import { type CategoryName } from "./utils/categories";
 
 const App = () => {
-  const [showForm, setShowForm] = useState<boolean>(false);
+  const [showForm, setShowForm] = useState(false);
   const [facts, setFacts] = useState<Fact[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentCategory, setCurrentCategory] = useState<CategoryName | "all">(
     "all"
   );
 
   useEffect(() => {
-    const getFacts = async () => {
+    const getFacts = async (): Promise<void> => {
       setIsLoading(true);
 
       let query = supabase.from("facts").select("*");
