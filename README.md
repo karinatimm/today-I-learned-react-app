@@ -54,7 +54,7 @@
 ### 🌐 Deployment
 
 This project has been deployed on Netlify and is accessible at the following URL:  
-**[Today I Learned App on Netlify](https://the-wild-oasis-react-app-kappa.vercel.app)**
+**[Today I Learned App on Netlify](https://today-i-learned-ts.netlify.app/)**
 
 ---
 
