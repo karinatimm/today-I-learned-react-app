@@ -1,18 +1,20 @@
 import { useState } from "react";
 import supabase from "../supabase.ts";
-import { type Fact as FactType } from "../types/index";
+import {
+  type Fact as FactType,
+  type SetState as SetStateType,
+  type Vote as VoteType,
+} from "../types/index";
 import { CATEGORIES, type CategoryType } from "../utils/categories.ts";
 
 type FactProps = {
   fact: FactType;
-  setFacts: React.Dispatch<React.SetStateAction<FactType[]>>;
+  setFacts: SetStateType<FactType[]>;
 };
-// Создаёт type alias — новый тип VoteType, который может быть только одной из
-// этих трёх строк:
-type VoteType = "votesInteresting" | "votesMindblowing" | "votesFalse";
 
 const Fact = ({ fact, setFacts }: FactProps) => {
   const [isUpdating, setIsUpdating] = useState(false);
+
   const isDisputed =
     fact.votesInteresting + fact.votesMindblowing < fact.votesFalse;
 
@@ -24,6 +26,7 @@ const Fact = ({ fact, setFacts }: FactProps) => {
       .update({ [columnName]: fact[columnName as VoteType] + 1 })
       .eq("id", fact.id)
       .select();
+
     setIsUpdating(false);
 
     if (!error) {
@@ -52,10 +55,9 @@ const Fact = ({ fact, setFacts }: FactProps) => {
       <span
         className="tag"
         style={{
-          // Ты ищешь объект в массиве CATEGORIES, у которого name совпадает с категорией факта (fact.category).
           backgroundColor: CATEGORIES.find(
-            (cat: CategoryType) => cat.name === fact.category // Здесь cat имеет тип Category — объект с name и color.
-          )?.color, // Если такой объект найден — берёшь его color для стиля.
+            (cat: CategoryType) => cat.name === fact.category
+          )?.color,
         }}
       >
         {fact.category}
