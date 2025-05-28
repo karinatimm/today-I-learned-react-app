@@ -1,4 +1,4 @@
-# Today I Learned App
+# Today I Learned App 🧑‍💻
 
 **Today I Learned** is a small full-stack web application designed to help users share and discover interesting facts across various categories. Built with modern web technologies, this app features fact submission, category filtering, voting for fact credibility, and real-time updates from a live database.
 
@@ -28,12 +28,13 @@
 ### Frontend
 
 - **React:** Component-based UI library.
-- **JavaScript (ES6+):** Core language powering interactivity.
+- **TypeScript:** Superset of JavaScript adding static typing and development-time safety.
+- **JavaScript:** Core language powering interactivity.
 - **CSS:** Styling and responsive layouts.
 
 ### Backend & Database
 
-- **Supabase:** Open-source Firebase alternative providing database, authentication, and API services.
+- **Supabase:** Open-source Firebase alternative built on PostgreSQL, providing database, authentication, and API services.
 
 ### Deployment
 
