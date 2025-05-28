@@ -1,9 +1,12 @@
 import Fact from "./Fact";
-import { type Fact as FactType } from "../types/index";
+import {
+  type Fact as FactType,
+  type SetState as SetStateType,
+} from "../types/index";
 
 type FactListProps = {
   facts: FactType[];
-  setFacts: React.Dispatch<React.SetStateAction<FactType[]>>;
+  setFacts: SetStateType<FactType[]>;
 };
 
 const FactList = ({ facts, setFacts }: FactListProps) => {
@@ -21,7 +24,9 @@ const FactList = ({ facts, setFacts }: FactListProps) => {
           <Fact key={fact.id} fact={fact} setFacts={setFacts} />
         ))}
       </ul>
-      <p>There are {facts.length} facts in the database. Add your own!</p>
+      <p className="facts-length">
+        There are {facts.length} facts in the database. Add your own!
+      </p>
     </section>
   );
 };
