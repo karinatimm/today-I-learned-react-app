@@ -1,11 +1,10 @@
 import { type CategoryName } from "../utils/categories";
 import { type CategoryType } from "../utils/categories";
+import { type SetState as SetStateType } from "../types/index";
 
 type CategoryProps = {
   cat: CategoryType;
-  setCurrentCategory: React.Dispatch<
-    React.SetStateAction<"all" | CategoryName>
-  >;
+  setCurrentCategory: SetStateType<"all" | CategoryName>;
 };
 
 const Category = ({ cat, setCurrentCategory }: CategoryProps) => {
