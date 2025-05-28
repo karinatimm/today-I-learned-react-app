@@ -10,3 +10,10 @@ export type Fact = {
   votesFalse: number;
   created_at?: string;
 };
+
+export type SetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
+export type Vote = keyof Pick<
+  Fact,
+  "votesInteresting" | "votesMindblowing" | "votesFalse"
+>;
