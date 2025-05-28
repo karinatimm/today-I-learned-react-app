@@ -16,6 +16,7 @@ body {
   color: #fafaf9;
   font-family: "Sono", sans-serif;
   padding: 4.8rem 6.4rem 0;
+  overflow-x: hidden;
 }
 
 /* UTILITIES */
@@ -65,8 +66,28 @@ body {
   }
 }
 
+@media (max-width: 38em) {
+  #root {
+    padding: 2.4rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .fact-form {
+    padding: 1.6rem;
+  }
+
+  .fact {
+    padding: 1.2rem 1.6rem;
+  }
+}
+
 section {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-bottom: 4rem;
 }
 
@@ -107,10 +128,14 @@ h1 {
   gap: 2.4rem;
 }
 
+.facts-length {
+  font-size: 1.5rem;
+}
+
 @media (max-width: 75em) {
   .fact {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 1.2rem;
   }
 }
@@ -245,6 +270,11 @@ ul {
   .fact-form {
     flex-direction: column;
     align-items: stretch;
+  }
+  .fact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
   }
 
   .fact-form input,
