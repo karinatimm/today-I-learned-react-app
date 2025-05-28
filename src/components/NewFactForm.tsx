@@ -1,13 +1,16 @@
-import { useState, type SetStateAction } from "react";
+import { useState } from "react";
 import supabase from "../supabase.js";
 import { MAX_LENGTH, isValidHttpUrl } from "../utils/utils.ts";
 import { CATEGORIES } from "../utils/categories.ts";
-import { type Fact as FactType } from "../types/index";
+import {
+  type Fact as FactType,
+  type SetState as SetStateType,
+} from "../types/index";
 import type { FormEvent } from "react";
 
 type NewFactFormProps = {
-  setFacts: React.Dispatch<SetStateAction<FactType[]>>;
-  setShowForm: React.Dispatch<SetStateAction<boolean>>;
+  setFacts: SetStateType<FactType[]>;
+  setShowForm: SetStateType<boolean>;
 };
 
 const NewFactForm = ({ setFacts, setShowForm }: NewFactFormProps) => {
@@ -35,6 +38,7 @@ const NewFactForm = ({ setFacts, setShowForm }: NewFactFormProps) => {
       setText("");
       setSource("");
       setCategory("");
+
       setShowForm(false);
     }
   };
@@ -61,6 +65,7 @@ const NewFactForm = ({ setFacts, setShowForm }: NewFactFormProps) => {
         onChange={(e) => setCategory(e.target.value)}
         disabled={isUploading}
       >
+        <option value="">Choose category:</option>
         {CATEGORIES.map((cat) => (
           <option key={cat.name} value={cat.name}>
             {cat.name.toUpperCase()}
