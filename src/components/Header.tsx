@@ -1,6 +1,8 @@
+import { type SetState as SetStateType } from "../types/index";
+
 type HeaderProps = {
   showForm: boolean;
-  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowForm: SetStateType<boolean>;
 };
 
 const Header = ({ showForm, setShowForm }: HeaderProps) => {
