@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+# Today I Learned App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Today I Learned** is a small full-stack web application designed to help users share and discover interesting facts across various categories. Built with modern web technologies, this app features fact submission, category filtering, voting for fact credibility, and real-time updates from a live database.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+### Core Functionalities
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Fact Submission:** Users can add new facts with text, source URL, and category.
+- **Category Filtering:** Filter facts by one of eight predefined categories.
+- **Voting System:** Upvote interesting facts, mark facts as mind-blowing, or downvote false facts.
+- **Fact Validation:** Facts with many downvotes are marked as disputed.
+- **Persistent Data:** All facts are saved and retrieved from a real-time database hosted on Supabase.
+- **Character Limit:** Fact text input includes a live character counter.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### User Experience Enhancements
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Responsive design optimized for desktop and mobile.
+- Intuitive and playful UI for easy navigation.
+- Real-time updates of facts without page reloads.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🛠️ Tech Stack
+
+### Frontend
+
+- **React:** Component-based UI library.
+- **JavaScript (ES6+):** Core language powering interactivity.
+- **CSS:** Styling and responsive layouts.
+
+### Backend & Database
+
+- **Supabase:** Open-source Firebase alternative providing database, authentication, and API services.
+
+### Deployment
+
+- **Netlify:** Free hosting service to deploy and share your live app.
+
+---
+
+## ⚙️ Architecture & Design
+
+- Modular React components for scalability and reusability.
+- State management using React hooks.
+- API integration with Supabase for CRUD operations.
+- Responsive layout using CSS Flexbox and Grid.
+- Voting and category filtering implemented with efficient client-side state logic.
+
+---
+
+### 🌐 Deployment
+
+This project has been deployed on Netlify and is accessible at the following URL:  
+**[Today I Learned App on Netlify](https://the-wild-oasis-react-app-kappa.vercel.app)**
+
+---
+
+### 🤝 Quality Assurance
+
+- The project follows best practices and is linted using **ESLint**.
+- The entire codebase is written in **TypeScript**, ensuring type safety and reducing runtime errors.
+- [![ESLint Status](https://img.shields.io/badge/ESLint-Passing-brightgreen.svg)](https://github.com/karinatimm/today-I-learned-react-app.git)
